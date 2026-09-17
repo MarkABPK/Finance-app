@@ -214,3 +214,63 @@ h1 {
   margin: 0;
   font-size: 28px;
 }
+
+/* transaction list*/
+
+.transaction-list {
+  margin-top: 24px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 24px;
+}
+
+.transaction-list-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.transaction-list-header h2 {
+  margin: 0;
+  font-size: 24px;
+}
+
+.transaction-list-header button {
+  border: none;
+  background: var(--accent);
+  color: var(--text-primary);
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.transaction-items {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 12px;
+  border-top: 1px solid var(--border);
+  margin: 10px;
+}
+
+.transaction-name,
+.transaction-category,
+.transaction-amount {
+  margin: 0;
+}
+
+.transaction-name {
+  font-weight: 600;
+}
+
+.transaction-category {
+  margin-top: 12px;
+  color: var(--text-secondary);
+}
+
+.transaction-amount.expense {
+  color: var(--expense);
+  font-weight: 700;
+}

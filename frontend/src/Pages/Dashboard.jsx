@@ -1,5 +1,6 @@
 import BalanceCard from "../components/BalanceCard";
 import MoneyCard from "../components/MoneyCard";
+import TransactionList from "../components/TransactionList";
 
 function Dashboard() {
   return (
@@ -21,6 +22,8 @@ function Dashboard() {
         <MoneyCard title="Income" amount="0" />
         <MoneyCard title="Expenses" amount="0" />
       </section>
+
+      <TransactionList />
     </main>
   );
 }
