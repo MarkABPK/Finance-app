@@ -248,29 +248,102 @@ h1 {
 
 .transaction-items {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding-top: 12px;
-  border-top: 1px solid var(--border);
-  margin: 10px;
+  flex-direction: column;
 }
 
-.transaction-name,
-.transaction-category,
+.transaction-item {
+  display: flex;
+  justify-content: space-between;
+  margin: 15px;
+  align-items: center;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.transaction-description,
+.transaction-type,
 .transaction-amount {
   margin: 0;
 }
 
-.transaction-name {
+.transaction-description {
   font-weight: 600;
 }
 
-.transaction-category {
+.transaction-type {
   margin-top: 12px;
   color: var(--text-secondary);
 }
 
+.transaction-amount {
+  font-weight: 600;
+}
+
+.transaction-amount.income {
+  color: var(--income);
+}
+
 .transaction-amount.expense {
   color: var(--expense);
-  font-weight: 700;
+}
+
+/* Transaction Form */
+
+.transaction-form {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 24px;
+  box-shadow: var(--shadow);
+  margin: 24px;
+}
+
+.transaction-form__field {
+  margin-bottom: 16px;
+}
+
+.transaction-form__title {
+  margin-top: 0;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.transaction-form label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+.transaction-form input,
+.transaction-form select {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 16px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+}
+
+.transaction-form button {
+  border: none;
+  background: var(--accent);
+  color: var(--text-primary);
+  padding: 10px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.transaction-form button:hover {
+  background: var(--accent-hover);
+}
+
+.transaction-form__input[type="number"] {
+  appearance: textfield;
+  -moz-appearance: textfield;
+}
+
+.transaction-form__input[type="number"]::-webkit-inner-spin-button,
+.transaction-form__input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }

@@ -1,7 +1,7 @@
 function Sidebar() {
   return (
     <aside className="sidebar">
-      <div className="logo">FINANCE</div>
+      <div className="logo">FINANCE APP</div>
 
       <nav>
         <a href="#" className="nav-item active">

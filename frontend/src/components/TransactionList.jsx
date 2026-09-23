@@ -1,18 +1,25 @@
-function TransactionList() {
+function TransactionList({ transactions }) {
   return (
     <section className="transaction-list">
       <div className="transaction-list-header">
         <h2>Recent Transactions</h2>
         <button>View All</button>
       </div>
-
       <div className="transaction-items">
-        <div>
-          <p className="transaction-name">Food</p>
-          <p className="transaction-category">Lunch</p>
-        </div>
+        {transactions.map((transaction, index) => (
+          <div key={index} className="transaction-item">
+            <div>
+              <p className="transaction-description">
+                {transaction.description}
+              </p>
+              <p className="transaction-type">{transaction.type}</p>
+            </div>
 
-        <p className="transaction-amount expense">-¥500</p>
+            <p className={`transaction-amount ${transaction.type}`}>
+              ¥{transaction.amount}
+            </p>
+          </div>
+        ))}
       </div>
     </section>
   );
