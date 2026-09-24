@@ -7,7 +7,7 @@ function TransactionForm({ onAddTransaction }) {
 
   function handleSubmit(event) {
     event.preventDefault();
-    onAddTransaction({ description, amount, type });
+    onAddTransaction({ description, amount: Number(amount), type });
     setDescription("");
     setAmount("");
     setType(""); // Clear the field after submission

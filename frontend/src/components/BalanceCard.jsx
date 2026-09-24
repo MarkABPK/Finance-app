@@ -1,9 +1,9 @@
-function BalanceCard() {
+function BalanceCard({ amountBalance }) {
   return (
     <div className="balance-card">
       <p className="balance-label">Current Balance</p>
 
-      <h2>¥0</h2>
+      <h2>¥{amountBalance}</h2>
 
       <p className="balance-description">Your available balance</p>
     </div>

@@ -9,6 +9,30 @@ function Dashboard() {
   const [isFormOpen, setIsFormOpen] = useState(false); // State to track if the form is open or closed
   const [transactions, setTransactions] = useState([]);
 
+  //income
+  const incomeTransaction = transactions.filter(
+    (transaction) => transaction.type === "income",
+  );
+  const totalIncome = incomeTransaction.reduce(
+    (incomeTotal, incomeTransaction) => {
+      return incomeTotal + incomeTransaction.amount;
+    },
+    0,
+  );
+  //expense
+  const expenseTransaction = transactions.filter(
+    (transaction) => transaction.type === "expense",
+  );
+  const totalExpense = expenseTransaction.reduce(
+    (expenseTotal, expenseTransaction) => {
+      return expenseTotal + expenseTransaction.amount;
+    },
+    0,
+  );
+
+  //balance
+  const balance = totalIncome - totalExpense;
+
   function handleAddTransaction() {
     // Function to handle the button click
     setIsFormOpen(!isFormOpen);
@@ -33,12 +57,12 @@ function Dashboard() {
       )}
 
       <section className="balance-section">
-        <BalanceCard />
+        <BalanceCard amountBalance={balance} />
       </section>
 
       <section className="money-cards">
-        <MoneyCard title="Income" amount="0" />
-        <MoneyCard title="Expenses" amount="0" />
+        <MoneyCard title="Income" amount={totalIncome} />
+        <MoneyCard title="Expenses" amount={totalExpense} />
       </section>
 
       <TransactionList transactions={transactions} />
