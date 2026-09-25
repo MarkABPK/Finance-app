@@ -1,4 +1,4 @@
-function TransactionList({ transactions }) {
+function TransactionList({ transactions, currency, formatCurrency }) {
   return (
     <section className="transaction-list">
       <div className="transaction-list-header">
@@ -16,7 +16,7 @@ function TransactionList({ transactions }) {
             </div>
 
             <p className={`transaction-amount ${transaction.type}`}>
-              ¥{transaction.amount}
+              {formatCurrency(transaction.amount, currency)}
             </p>
           </div>
         ))}

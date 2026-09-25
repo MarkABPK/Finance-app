@@ -1,8 +1,8 @@
-function MoneyCard({ title, amount }) {
+function MoneyCard({ title, amount, currency, formatCurrency }) {
   return (
     <div className="money-card">
       <p>{title}</p>
-      <h3>¥{amount}</h3>
+      <h3>{formatCurrency(amount, currency)}</h3>
     </div>
   );
 }

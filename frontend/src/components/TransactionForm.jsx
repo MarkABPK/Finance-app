@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-function TransactionForm({ onAddTransaction }) {
+function TransactionForm({ onAddTransaction, currency }) {
   const [description, setDescription] = useState("");
   const [amount, setAmount] = useState("");
   const [type, setType] = useState("");
@@ -29,7 +29,7 @@ function TransactionForm({ onAddTransaction }) {
         />
       </div>
       <div className="transaction-form__field">
-        <label className="transaction-form__label">Amount ¥</label>
+        <label className="transaction-form__label">Amount {currency}</label>
         {/*onChange event to update the amount*/}
         <input
           className="transaction-form__input"
