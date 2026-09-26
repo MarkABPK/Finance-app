@@ -5,7 +5,9 @@ import TransactionList from "../components/TransactionList";
 import { useState } from "react"; // Importing useState
 import TransactionForm from "../components/TransactionForm";
 
-function Dashboard() {
+import ThemeToggle from "../components/ThemeToggle";
+
+function Dashboard({ theme, toggleTheme }) {
   const [isFormOpen, setIsFormOpen] = useState(false); // State to track if the form is open or closed
   const [transactions, setTransactions] = useState([]);
   const [currency, setCurrency] = useState("JPY");
@@ -73,6 +75,10 @@ function Dashboard() {
             <option value="USD">US Dollar (USD)</option>
             <option value="MMK">Myanmar Kyat (MMK)</option>
           </select>
+        </div>
+
+        <div className="theme-toggle-wrapper">
+          <ThemeToggle theme={theme} toggleTheme={toggleTheme} />
         </div>
 
         <button className="add-button" onClick={handleAddTransaction}>
