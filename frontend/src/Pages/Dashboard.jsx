@@ -7,7 +7,7 @@ import TransactionForm from "../components/TransactionForm";
 
 import ThemeToggle from "../components/ThemeToggle";
 
-function Dashboard({ theme, toggleTheme }) {
+function Dashboard({ theme, setTheme, toggleTheme }) {
   const [isFormOpen, setIsFormOpen] = useState(false); // State to track if the form is open or closed
   const [transactions, setTransactions] = useState([]);
   const [currency, setCurrency] = useState("JPY");
@@ -60,30 +60,36 @@ function Dashboard({ theme, toggleTheme }) {
   return (
     <main className="dashboard">
       <header className="dashboard-header">
-        <div>
+        <div className="dashboard-heading">
           <p className="page-label">Overview</p>
           <h1>Dashboard</h1>
         </div>
 
-        <div className="currency-select-wrapper">
-          <select
-            className="currency-select"
-            value={currency}
-            onChange={(event) => setCurrency(event.target.value)}
-          >
-            <option value="JPY">Japanese Yen (JPY)</option>
-            <option value="USD">US Dollar (USD)</option>
-            <option value="MMK">Myanmar Kyat (MMK)</option>
-          </select>
-        </div>
+        <div className="dashboard-actions">
+          <div className="theme-toggle-wrapper">
+            <ThemeToggle
+              theme={theme}
+              setTheme={setTheme}
+              toggleTheme={toggleTheme}
+            />
+          </div>
 
-        <div className="theme-toggle-wrapper">
-          <ThemeToggle theme={theme} toggleTheme={toggleTheme} />
-        </div>
+          <div className="currency-select-wrapper">
+            <select
+              className="currency-select"
+              value={currency}
+              onChange={(event) => setCurrency(event.target.value)}
+            >
+              <option value="JPY">Japanese Yen (JPY)</option>
+              <option value="USD">US Dollar (USD)</option>
+              <option value="MMK">Myanmar Kyat (MMK)</option>
+            </select>
+          </div>
 
-        <button className="add-button" onClick={handleAddTransaction}>
-          + Add Transaction
-        </button>
+          <button className="add-button" onClick={handleAddTransaction}>
+            + Add Transaction
+          </button>
+        </div>
       </header>
       {isFormOpen && (
         <TransactionForm

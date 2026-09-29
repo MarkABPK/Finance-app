@@ -1,8 +1,22 @@
-function ThemeToggle({ theme, toggleTheme }) {
+function ThemeToggle({ theme, setTheme, toggleTheme }) {
   return (
-    <button type="button" className="theme-toggle" onClick={toggleTheme}>
-      {theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
-    </button>
+    <div className="theme-switch">
+      <button
+        type="button"
+        className={`theme-option ${theme === "light" ? "active" : ""}`}
+        onClick={() => setTheme("light")}
+      >
+        Light
+      </button>
+
+      <button
+        type="button"
+        className={`theme-option ${theme === "dark" ? "active" : ""}`}
+        onClick={() => setTheme("dark")}
+      >
+        Dark
+      </button>
+    </div>
   );
 }
 
