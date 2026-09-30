@@ -1,26 +1,54 @@
 import { House, ReceiptText, Wallet, Target, Settings } from "lucide-react";
-function Sidebar() {
+function Sidebar({ activePage, setActivePage }) {
   return (
     <aside className="sidebar">
       <div className="logo">FINANCE APP</div>
 
       <nav>
-        <a href="#" className="nav-item active">
+        <a
+          href="#"
+          className={`nav-item ${activePage === "dashboard" ? "active" : ""}`}
+          onClick={(event) => {
+            event.preventDefault();
+            setActivePage("dashboard");
+          }}
+        >
           <House className="nav-icon" />
           Dashboard
         </a>
 
-        <a href="#" className="nav-item">
+        <a
+          href="#"
+          className={`nav-item ${activePage === "transactions" ? "active" : ""}`}
+          onClick={(event) => {
+            event.preventDefault();
+            setActivePage("transactions");
+          }}
+        >
           <ReceiptText className="nav-icon" />
           Transactions
         </a>
 
-        <a href="#" className="nav-item">
+        <a
+          href="#"
+          className={`nav-item ${activePage === "budgets" ? "active" : ""}`}
+          onClick={(event) => {
+            event.preventDefault();
+            setActivePage("budgets");
+          }}
+        >
           <Wallet className="nav-icon" />
           Budgets
         </a>
 
-        <a href="#" className="nav-item">
+        <a
+          href="#"
+          className={`nav-item ${activePage === "goals" ? "active" : ""}`}
+          onClick={(event) => {
+            event.preventDefault();
+            setActivePage("goals");
+          }}
+        >
           <Target className="nav-icon" />
           Goals
         </a>
