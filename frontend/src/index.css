@@ -57,6 +57,10 @@ select {
 
 /* Sidebar */
 
+.mobile-nav {
+  display: none;
+}
+
 .sidebar {
   width: 240px;
   min-height: 100vh;
@@ -83,13 +87,13 @@ select {
 }
 
 .nav-item {
-  display: block;
+  display: flex;
+  align-items: center;
+  gap: 8px;
   padding: 12px;
   border-radius: 10px;
-
   color: var(--text-secondary);
   text-decoration: none;
-
   transition: 0.2s;
 }
 
@@ -104,7 +108,14 @@ select {
 }
 
 .sidebar-bottom {
+  display: flex;
+  align-items: center;
+  gap: 8px;
   margin-top: auto;
+}
+
+.nav-icon {
+  font-size: 15px;
 }
 
 /*    DASHBOARD*/
@@ -466,65 +477,85 @@ h1 {
 }
 
 @media (max-width: 768px) {
+  .sidebar {
+    display: none;
+  }
   .app-layout {
     flex-direction: column;
   }
-  .sidebar {
-    display: grid;
-    grid-template-columns: 1fr auto;
-    align-items: center;
-    gap: 12px;
+
+  .mobile-nav {
     width: 100%;
-    min-height: auto;
-    border-right: none;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 20px;
+    background: var(--bg-secondary);
     border-bottom: 1px solid var(--border);
-    padding: 16px;
   }
 
-  .logo {
-    grid-column: 1 / -1;
-    margin-bottom: 0;
+  .mobile-nav-logo {
+    font-size: 30px;
+    font-weight: 700;
+    padding: 0px;
+    margin: 0px;
   }
 
-  .sidebar nav {
-    grid-column: 1;
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 4px;
+  .mobile-nav-items {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    gap: 8px;
+    overflow-x: auto;
   }
 
-  .sidebar-bottom {
-    grid-column: 2;
-    margin-top: 0;
-  }
-
-  .nav-item {
-    padding: 8px 10px;
+  .mobile-nav-items .nav-item {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 12px 0;
   }
 
   .dashboard {
     padding: 20px;
   }
+  .mobile-nav-icon {
+    font-size: 20px;
+  }
 }
 
 @media (max-width: 600px) {
   .sidebar {
-    display: block;
+    display: none;
+  }
+  .app-layout {
+    flex-direction: column;
+  }
+
+  .mobile-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
     padding: 20px;
+    background: var(--bg-secondary);
+    border-bottom: 1px solid var(--border);
+    width: 100%;
   }
 
-  .logo {
-    margin-bottom: 16px;
-  }
-
-  .sidebar nav {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+  .mobile-nav-items {
+    display: flex;
+    flex-wrap: nowrap;
     gap: 8px;
+    overflow-x: auto;
   }
 
-  .sidebar-bottom {
-    margin-top: 8px;
+  .mobile-nav-items .nav-item {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 12px 0;
   }
 
   .dashboard {
@@ -550,5 +581,9 @@ h1 {
   .add-button {
     grid-column: 1 / -1;
     width: 100%;
+  }
+
+  .mobile-nav-icon {
+    font-size: 20px;
   }
 }
