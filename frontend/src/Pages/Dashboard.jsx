@@ -7,10 +7,18 @@ import TransactionForm from "../components/TransactionForm";
 
 import ThemeToggle from "../components/ThemeToggle";
 
-function Dashboard({ theme, setTheme, toggleTheme }) {
+function Dashboard({
+  theme,
+  setTheme,
+  toggleTheme,
+  transactions,
+  onAddTransaction,
+  currency,
+  setCurrency,
+  formatCurrency,
+  onViewAllTransactions,
+}) {
   const [isFormOpen, setIsFormOpen] = useState(false); // State to track if the form is open or closed
-  const [transactions, setTransactions] = useState([]);
-  const [currency, setCurrency] = useState("JPY");
 
   //income
   const incomeTransaction = transactions.filter(
@@ -39,22 +47,6 @@ function Dashboard({ theme, setTheme, toggleTheme }) {
   function handleAddTransaction() {
     // Function to handle the button click
     setIsFormOpen(!isFormOpen);
-  }
-  function handleNewTransaction(transaction) {
-    setTransactions([...transactions, transaction]);
-  }
-
-  //format currency
-  function formatCurrency(amount, currency) {
-    if (currency === "MMK") {
-      const formatted = new Intl.NumberFormat("my-MM", {}).format(amount);
-      return "Ks " + formatted;
-    }
-    const formatted = new Intl.NumberFormat("en-US", {
-      style: "currency",
-      currency: currency,
-    }).format(amount);
-    return formatted;
   }
 
   return (
@@ -93,7 +85,7 @@ function Dashboard({ theme, setTheme, toggleTheme }) {
       </header>
       {isFormOpen && (
         <TransactionForm
-          onAddTransaction={handleNewTransaction}
+          onAddTransaction={onAddTransaction}
           currency={currency}
         />
       )}
@@ -125,6 +117,7 @@ function Dashboard({ theme, setTheme, toggleTheme }) {
         transactions={transactions}
         currency={currency}
         formatCurrency={formatCurrency}
+        onViewAllTransactions={onViewAllTransactions}
       />
     </main>
   );

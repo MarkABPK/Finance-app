@@ -10,6 +10,28 @@ import GoalsPage from "./Pages/GoalsPage";
 function App() {
   const { theme, setTheme, toggleTheme } = useTheme();
   const [activePage, setActivePage] = useState("dashboard");
+  const [transactions, setTransactions] = useState([]);
+  const [currency, setCurrency] = useState("JPY");
+
+  function handleNewTransaction(transaction) {
+    setTransactions((prevTransactions) => [...prevTransactions, transaction]);
+  }
+
+  function handleViewAllTransactions() {
+    setActivePage("transactions");
+  }
+  //format currency
+  function formatCurrency(amount, currency) {
+    if (currency === "MMK") {
+      const formatted = new Intl.NumberFormat("my-MM", {}).format(amount);
+      return "Ks " + formatted;
+    }
+    const formatted = new Intl.NumberFormat("en-US", {
+      style: "currency",
+      currency: currency,
+    }).format(amount);
+    return formatted;
+  }
 
   function renderPage() {
     switch (activePage) {
@@ -19,6 +41,12 @@ function App() {
             theme={theme}
             toggleTheme={toggleTheme}
             setTheme={setTheme}
+            transactions={transactions}
+            onAddTransaction={handleNewTransaction}
+            currency={currency}
+            setCurrency={setCurrency}
+            formatCurrency={formatCurrency}
+            onViewAllTransactions={handleViewAllTransactions}
           />
         );
       case "transactions":
@@ -27,6 +55,10 @@ function App() {
             theme={theme}
             toggleTheme={toggleTheme}
             setTheme={setTheme}
+            transactions={transactions}
+            currency={currency}
+            setCurrency={setCurrency}
+            formatCurrency={formatCurrency}
           />
         );
       case "budgets":
@@ -51,6 +83,12 @@ function App() {
             theme={theme}
             toggleTheme={toggleTheme}
             setTheme={setTheme}
+            transactions={transactions}
+            onAddTransaction={handleNewTransaction}
+            currency={currency}
+            setCurrency={setCurrency}
+            formatCurrency={formatCurrency}
+            onViewAllTransactions={handleViewAllTransactions}
           />
         );
     }
