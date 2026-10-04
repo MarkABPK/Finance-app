@@ -5,16 +5,10 @@ import TransactionList from "../components/TransactionList";
 import { useState } from "react"; // Importing useState
 import TransactionForm from "../components/TransactionForm";
 
-import ThemeToggle from "../components/ThemeToggle";
-
 function Dashboard({
-  theme,
-  setTheme,
-  toggleTheme,
   transactions,
   onAddTransaction,
   currency,
-  setCurrency,
   formatCurrency,
   onViewAllTransactions,
 }) {
@@ -58,26 +52,6 @@ function Dashboard({
         </div>
 
         <div className="dashboard-actions">
-          <div className="theme-toggle-wrapper">
-            <ThemeToggle
-              theme={theme}
-              setTheme={setTheme}
-              toggleTheme={toggleTheme}
-            />
-          </div>
-
-          <div className="currency-select-wrapper">
-            <select
-              className="currency-select"
-              value={currency}
-              onChange={(event) => setCurrency(event.target.value)}
-            >
-              <option value="JPY">Japanese Yen (JPY)</option>
-              <option value="USD">US Dollar (USD)</option>
-              <option value="MMK">Myanmar Kyat (MMK)</option>
-            </select>
-          </div>
-
           <button className="add-button" onClick={handleAddTransaction}>
             + Add Transaction
           </button>

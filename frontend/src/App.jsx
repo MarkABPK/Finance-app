@@ -6,6 +6,7 @@ import { useState } from "react";
 import TransactionPage from "./Pages/TransactionPage";
 import BudgetPage from "./Pages/BudgetPage";
 import GoalsPage from "./Pages/GoalsPage";
+import AppHeader from "./components/AppHeader";
 
 function App() {
   const { theme, setTheme, toggleTheme } = useTheme();
@@ -98,7 +99,19 @@ function App() {
     <div className={`app-layout ${theme}`}>
       <MobileNav activePage={activePage} setActivePage={setActivePage} />
       <Sidebar activePage={activePage} setActivePage={setActivePage} />
-      {renderPage()}
+      <div className="app-content">
+        <AppHeader
+          theme={theme}
+          setTheme={setTheme}
+          currency={currency}
+          setCurrency={setCurrency}
+          showCurrency={
+            activePage === "dashboard" || activePage === "transactions"
+          }
+        />
+
+        {renderPage()}
+      </div>
     </div>
   );
 }

@@ -523,6 +523,14 @@ h1 {
   .mobile-nav-icon {
     font-size: 20px;
   }
+  .app-content {
+    width: 100%;
+  }
+
+  .app-header {
+    justify-content: space-between;
+    padding: 16px 20px 0;
+  }
 }
 
 @media (max-width: 600px) {
@@ -586,4 +594,33 @@ h1 {
   .mobile-nav-icon {
     font-size: 20px;
   }
+  .app-content {
+    width: 100%;
+  }
+
+  .app-header {
+    justify-content: flex-end;
+    padding: 16px 20px 0;
+  }
+}
+
+.app-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.app-header {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 16px;
+  padding: 16px 24px;
+}
+
+.app-header .currency-select-wrapper {
+  width: min(100%, 175px);
+}
+
+.app-header .currency-select {
+  width: 100%;
 }
