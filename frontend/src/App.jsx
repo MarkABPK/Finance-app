@@ -6,10 +6,11 @@ import { useState } from "react";
 import TransactionPage from "./Pages/TransactionPage";
 import BudgetPage from "./Pages/BudgetPage";
 import GoalsPage from "./Pages/GoalsPage";
+import SettingPage from "./Pages/SettingPage";
 import AppHeader from "./components/AppHeader";
 
 function App() {
-  const { theme, setTheme, toggleTheme } = useTheme();
+  const { theme, setTheme } = useTheme();
   const [activePage, setActivePage] = useState("dashboard");
   const [transactions, setTransactions] = useState([]);
   const [currency, setCurrency] = useState("JPY");
@@ -39,13 +40,9 @@ function App() {
       case "dashboard":
         return (
           <Dashboard
-            theme={theme}
-            toggleTheme={toggleTheme}
-            setTheme={setTheme}
             transactions={transactions}
             onAddTransaction={handleNewTransaction}
             currency={currency}
-            setCurrency={setCurrency}
             formatCurrency={formatCurrency}
             onViewAllTransactions={handleViewAllTransactions}
           />
@@ -53,41 +50,23 @@ function App() {
       case "transactions":
         return (
           <TransactionPage
-            theme={theme}
-            toggleTheme={toggleTheme}
-            setTheme={setTheme}
             transactions={transactions}
             currency={currency}
-            setCurrency={setCurrency}
             formatCurrency={formatCurrency}
           />
         );
       case "budgets":
-        return (
-          <BudgetPage
-            theme={theme}
-            toggleTheme={toggleTheme}
-            setTheme={setTheme}
-          />
-        );
+        return <BudgetPage />;
       case "goals":
-        return (
-          <GoalsPage
-            theme={theme}
-            toggleTheme={toggleTheme}
-            setTheme={setTheme}
-          />
-        );
+        return <GoalsPage />;
+      case "settings":
+        return <SettingPage />;
       default:
         return (
           <Dashboard
-            theme={theme}
-            toggleTheme={toggleTheme}
-            setTheme={setTheme}
             transactions={transactions}
             onAddTransaction={handleNewTransaction}
             currency={currency}
-            setCurrency={setCurrency}
             formatCurrency={formatCurrency}
             onViewAllTransactions={handleViewAllTransactions}
           />

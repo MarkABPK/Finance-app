@@ -1,4 +1,4 @@
-function ThemeToggle({ theme, setTheme, toggleTheme }) {
+function ThemeToggle({ theme, setTheme }) {
   return (
     <div className="theme-switch">
       <button

@@ -7,8 +7,6 @@
   --bg-primary: #0b0f19;
   --bg-secondary: #111827;
   --bg-card: #151c2c;
-  --select--bg: #042a6c;
-  --bg-button: #32c7d4;
 
   /* Text */
   --text-primary: #f8fafc;
@@ -29,10 +27,6 @@
   /* Effects */
   --radius: 16px;
   --shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
-}
-
-* {
-  box-sizing: border-box;
 }
 
 body {
@@ -438,7 +432,6 @@ h1 {
 
 .app-layout {
   background: var(--bg-primary);
-  background: var(--bg-primary);
   color: var(--text-primary);
 }
 
@@ -446,7 +439,6 @@ h1 {
   --bg-primary: #f8fafc;
   --bg-secondary: #e5e7eb;
   --bg-card: #ffffff;
-  --select--bg: #d1d5db;
 
   --text-primary: #1f2937;
   --text-secondary: #4b5563;
@@ -575,10 +567,6 @@ h1 {
     grid-template-columns: auto minmax(0, 1fr);
     width: 100%;
     gap: 12px;
-  }
-
-  .theme-toggle-wrapper {
-    margin: 0;
   }
 
   .currency-select-wrapper,

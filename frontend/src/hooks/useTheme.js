@@ -8,10 +8,7 @@ function useTheme() {
     localStorage.setItem("theme", theme);
   }, [theme]);
 
-  function toggleTheme() {
-    setTheme((prevTheme) => (prevTheme === "dark" ? "light" : "dark"));
-  }
-  return { theme, setTheme, toggleTheme };
+  return { theme, setTheme };
 }
 
 export default useTheme;

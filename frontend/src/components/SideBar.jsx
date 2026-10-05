@@ -55,7 +55,14 @@ function Sidebar({ activePage, setActivePage }) {
       </nav>
 
       <div className="sidebar-bottom">
-        <a href="#" className="nav-item">
+        <a
+          href="#"
+          className={`nav-item ${activePage === "settings" ? "active" : ""}`}
+          onClick={(event) => {
+            event.preventDefault();
+            setActivePage("settings");
+          }}
+        >
           <Settings className="nav-icon" />
           Settings
         </a>
