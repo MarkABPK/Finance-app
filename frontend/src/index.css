@@ -112,6 +112,10 @@ select {
   font-size: 15px;
 }
 
+.sidebar-bottom .nav-item {
+  width: 100%;
+}
+
 /*    DASHBOARD*/
 
 .dashboard {
@@ -611,4 +615,35 @@ h1 {
 
 .app-header .currency-select {
   width: 100%;
+}
+
+/* Settings Page */
+
+.section-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  width: 100%;
+}
+
+.section-item {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 12px 16px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--bg-card);
+  color: var(--text-primary);
+  box-shadow: var(--shadow);
+  text-align: left;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.section-name {
+  flex: 1;
+  size: 17px;
+  font-weight: 700;
 }

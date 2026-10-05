@@ -1,3 +1,5 @@
+import { Sun, Moon } from "lucide-react";
+
 function ThemeToggle({ theme, setTheme }) {
   return (
     <div className="theme-switch">
@@ -6,7 +8,7 @@ function ThemeToggle({ theme, setTheme }) {
         className={`theme-option ${theme === "light" ? "active" : ""}`}
         onClick={() => setTheme("light")}
       >
-        Light
+        <Sun className="icon" />
       </button>
 
       <button
@@ -14,7 +16,7 @@ function ThemeToggle({ theme, setTheme }) {
         className={`theme-option ${theme === "dark" ? "active" : ""}`}
         onClick={() => setTheme("dark")}
       >
-        Dark
+        <Moon className="icon" />
       </button>
     </div>
   );

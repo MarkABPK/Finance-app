@@ -49,7 +49,14 @@ function MobileNav({ activePage, setActivePage }) {
           <Target className="mobile-nav-icon" alt="Goals" />
         </a>
 
-        <a href="#" className="nav-item">
+        <a
+          href="#"
+          className={`nav-item ${activePage === "settings" ? "active" : ""}`}
+          onClick={(event) => {
+            event.preventDefault();
+            setActivePage("settings");
+          }}
+        >
           <Settings className="mobile-nav-icon" alt="Settings" />
         </a>
       </nav>
