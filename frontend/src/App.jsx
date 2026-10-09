@@ -76,8 +76,17 @@ function App() {
 
   return (
     <div className={`app-layout ${theme}`}>
-      <MobileNav activePage={activePage} setActivePage={setActivePage} />
-      <Sidebar activePage={activePage} setActivePage={setActivePage} />
+      {activePage !== "settings" && (
+        <>
+          <MobileNav activePage={activePage} setActivePage={setActivePage} />
+        </>
+      )}
+      <Sidebar
+        activePage={activePage}
+        setActivePage={setActivePage}
+        compact={activePage === "settings"}
+      />
+
       <div className="app-content">
         <AppHeader
           theme={theme}

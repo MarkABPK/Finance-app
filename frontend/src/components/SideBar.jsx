@@ -1,8 +1,16 @@
 import { House, ReceiptText, Wallet, Target, Settings } from "lucide-react";
-function Sidebar({ activePage, setActivePage }) {
+function Sidebar({ activePage, setActivePage, compact }) {
   return (
-    <aside className="sidebar">
-      <div className="logo">FINANCE APP</div>
+    <aside className={`sidebar ${compact ? "sidebar-compact" : ""}`}>
+      {compact ? (
+        <img
+          className="compact-logo"
+          src="/finance-logo.png"
+          alt="Finance App"
+        />
+      ) : (
+        <div className="logo">FINANCE APP</div>
+      )}
 
       <nav>
         <a
@@ -14,7 +22,7 @@ function Sidebar({ activePage, setActivePage }) {
           }}
         >
           <House className="nav-icon" />
-          Dashboard
+          <span className="nav-label">Dashboard</span>
         </a>
 
         <a
@@ -26,7 +34,7 @@ function Sidebar({ activePage, setActivePage }) {
           }}
         >
           <ReceiptText className="nav-icon" />
-          Transactions
+          <span className="nav-label">Transactions</span>
         </a>
 
         <a
@@ -38,7 +46,7 @@ function Sidebar({ activePage, setActivePage }) {
           }}
         >
           <Wallet className="nav-icon" />
-          Budgets
+          <span className="nav-label">Budgets</span>
         </a>
 
         <a
@@ -50,23 +58,24 @@ function Sidebar({ activePage, setActivePage }) {
           }}
         >
           <Target className="nav-icon" />
-          Goals
+          <span className="nav-label">Goals</span>
         </a>
       </nav>
-
-      <div className="sidebar-bottom">
-        <a
-          href="#"
-          className={`nav-item ${activePage === "settings" ? "active" : ""}`}
-          onClick={(event) => {
-            event.preventDefault();
-            setActivePage("settings");
-          }}
-        >
-          <Settings className="nav-icon" />
-          Settings
-        </a>
-      </div>
+      {!compact && (
+        <div className="sidebar-bottom">
+          <a
+            href="#"
+            className={`nav-item ${activePage === "settings" ? "active" : ""}`}
+            onClick={(event) => {
+              event.preventDefault();
+              setActivePage("settings");
+            }}
+          >
+            <Settings className="nav-icon" />
+            <span className="nav-label">Settings</span>
+          </a>
+        </div>
+      )}
     </aside>
   );
 }
