@@ -116,12 +116,6 @@ select {
   width: 100%;
 }
 
-.settings-page {
-  width: 100%;
-  max-width: 900px;
-  margin: 0 auto;
-}
-
 /*    DASHBOARD*/
 
 .dashboard {
@@ -694,13 +688,17 @@ h1 {
   display: flex;
   align-items: center;
   gap: 12px;
+
   padding: 12px;
+  border: none;
   border-radius: 10px;
-  color: var(--text-secondary);
+  background: transparent;
+  box-shadow: none;
+
+  color: var(--text-primary);
   text-decoration: none;
   transition: 0.2s;
 }
-
 .settings-menu .dashboard-header {
   margin-bottom: 32px;
   display: block;
@@ -709,13 +707,6 @@ h1 {
 .settings-menu .dashboard-header h1 {
   font-size: 28px;
   margin-bottom: 0;
-}
-
-.settings-menu .section-item {
-  border: none;
-  box-shadow: none;
-  background: transparent;
-  padding: 12px;
 }
 
 .settings-menu .section-item:hover {
