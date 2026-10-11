@@ -1,6 +1,6 @@
 import { House, ReceiptText, Wallet, Target, Settings } from "lucide-react";
 
-function MobileNav({ activePage, setActivePage }) {
+function MobileNav({ activePage, setActivePage, hideSettings }) {
   return (
     <div className="mobile-nav">
       <h1 className="mobile-nav-logo">FINANCE APP</h1>
@@ -49,16 +49,18 @@ function MobileNav({ activePage, setActivePage }) {
           <Target className="mobile-nav-icon" alt="Goals" />
         </a>
 
-        <a
-          href="#"
-          className={`nav-item ${activePage === "settings" ? "active" : ""}`}
-          onClick={(event) => {
-            event.preventDefault();
-            setActivePage("settings");
-          }}
-        >
-          <Settings className="mobile-nav-icon" alt="Settings" />
-        </a>
+        {!hideSettings && (
+          <a
+            href="#"
+            className={`nav-item ${activePage === "settings" ? "active" : ""}`}
+            onClick={(event) => {
+              event.preventDefault();
+              setActivePage("settings");
+            }}
+          >
+            <Settings className="mobile-nav-icon" alt="Settings" />
+          </a>
+        )}
       </nav>
     </div>
   );

@@ -76,11 +76,14 @@ function App() {
 
   return (
     <div className={`app-layout ${theme}`}>
-      {activePage !== "settings" && (
-        <>
-          <MobileNav activePage={activePage} setActivePage={setActivePage} />
-        </>
-      )}
+      <>
+        <MobileNav
+          activePage={activePage}
+          setActivePage={setActivePage}
+          hideSettings={activePage === "settings"}
+        />
+      </>
+
       <Sidebar
         activePage={activePage}
         setActivePage={setActivePage}
@@ -96,6 +99,7 @@ function App() {
           showCurrency={
             activePage === "dashboard" || activePage === "transactions"
           }
+          showSettingsSearch={activePage === "settings"}
         />
 
         {renderPage()}
