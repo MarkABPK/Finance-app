@@ -1,5 +1,6 @@
 import { CircleUserRound, BellRing, Globe } from "lucide-react";
 import { useState } from "react";
+import SettingDetails from "../components/SettingDetails";
 
 function SettingPage() {
   const [activeSetting, setActiveSetting] = useState(() =>
@@ -28,14 +29,30 @@ function SettingPage() {
             <span className="section-name">Account</span>
           </button>
 
-          <button type="button" className="section-item">
+          <button
+            type="button"
+            className="section-item"
+            onClick={() =>
+              setActiveSetting((current) =>
+                current === "notifications" ? null : "notifications",
+              )
+            }
+          >
             <span className="section-icon">
               <BellRing />
             </span>
             <span className="section-name">Notifications</span>
           </button>
 
-          <button type="button" className="section-item">
+          <button
+            type="button"
+            className="section-item"
+            onClick={() =>
+              setActiveSetting((current) =>
+                current === "language" ? null : "language",
+              )
+            }
+          >
             <span className="section-icon">
               <Globe />
             </span>
@@ -44,18 +61,9 @@ function SettingPage() {
         </div>
       </aside>
 
-      {activeSetting === "account" && (
+      {activeSetting && (
         <section className="settings-content">
-          <header className="settings-content-header">
-            <h1>Account</h1>
-          </header>
-          <div className="settings-content-body">
-            <p>
-              This is your account settings. You can update your personal
-              information, change your password, and manage your account
-              preferences here.
-            </p>
-          </div>
+          <SettingDetails setting={activeSetting} />
         </section>
       )}
     </main>
